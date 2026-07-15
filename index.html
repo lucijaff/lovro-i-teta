@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lovro i Teta</title>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; background: #0f0a14; overflow: hidden; }
+    canvas { image-rendering: pixelated; }
+    #err {
+      position: fixed; top: 0; left: 0; z-index: 999; margin: 0; padding: 4px 8px;
+      color: #ff5555; background: rgba(0,0,0,.85); font: 12px monospace;
+      white-space: pre-wrap; max-height: 40%; overflow: auto; pointer-events: none;
+    }
+    #err:empty { display: none; }
+  </style>
+</head>
+<body>
+  <pre id="err"></pre>
+  <script>
+    // Error overlay: makes JS errors visible on screen (and in headless screenshots).
+    window.addEventListener("error", (e) => {
+      document.getElementById("err").textContent +=
+        e.message + "\n  " + (e.filename || "") + ":" + (e.lineno || "") + "\n";
+    });
+    window.addEventListener("unhandledrejection", (e) => {
+      document.getElementById("err").textContent += "Promise: " + (e.reason?.message || e.reason) + "\n";
+    });
+  </script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
