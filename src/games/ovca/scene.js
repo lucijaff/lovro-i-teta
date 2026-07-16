@@ -51,6 +51,7 @@ export function registerScene(k) {
     let carryT = 0;
     let thrown = false;
     let thrownAirT = 0;
+    let leapCd = 0;
 
     function setFrozen(v) {
       teta.frozen = v;
@@ -103,7 +104,7 @@ export function registerScene(k) {
         setFrozen(false);
       });
 
-      if (playerIsTeta && match.round === 1) {
+      if (match.round === 1) {
         const strip = k.add([
           k.rect(k.width(), 13),
           k.pos(0, k.height() - 13),
@@ -112,7 +113,7 @@ export function registerScene(k) {
           k.z(149),
         ]);
         const hint = k.add([
-          k.text(STR.ovGrabHint, { size: 8 }),
+          k.text(playerIsTeta ? STR.ovGrabHint : STR.ovLeapHint, { size: 8 }),
           k.pos(k.width() / 2, k.height() - 7),
           k.anchor("center"),
           k.color(244, 244, 244),
@@ -211,9 +212,18 @@ export function registerScene(k) {
       ovcaCpu.update(dt);
 
       const wantGrab = teta.controller?.consumePress("slap");
-      lovro.controller?.consumePress("slap"); // ovca nema pljesak — samo počisti
+      const wantLeap = lovro.controller?.consumePress("slap");
       if (phase !== "playing") return;
       if (wantGrab && !teta.frozen) tryGrabOrThrow();
+
+      // BRZI IZMAK (X): ovčji skok u stranu s trenom nedodirljivosti
+      leapCd = Math.max(0, leapCd - dt);
+      if (wantLeap && !lovro.frozen && !carrying && !thrown && leapCd <= 0) {
+        leapCd = OVCA.leapCooldown;
+        lovro.vel = k.vec2(lovro.facing * OVCA.leapSpeed, -OVCA.leapJump);
+        lovro.invuln = Math.max(lovro.invuln, OVCA.leapInvuln);
+        floatText(k, lovro.pos.add(-lovro.facing * 10, -20), "HOP!", "#40d8d0");
+      }
 
       // nošenje: ovca visi teti pod rukom, sa strane, dok je ne baci
       // ili dok joj ne isklizne

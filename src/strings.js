@@ -39,6 +39,7 @@ export const STR = {
   ovTres: "TRES!",
   ovBedBonus: "NA KREVET! +2",
   ovGrabHint: "X = ULOVI / BACI",
+  ovLeapHint: "X = BRZI IZMAK!",
   taps: ["JEDAN!", "DVA!", "TRI!!!"],
 
   again: "PONOVNO",

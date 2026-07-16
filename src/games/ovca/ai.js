@@ -131,7 +131,8 @@ export function createOvcaCpu(k) {
         mode = "flee";
         modeT = 1.3;
         targetX = me.pos.x < 160 ? 290 : 30;
-        if (me.isGrounded()) ctrl.press("jump"); // preskoči je ako treba
+        me.facing = Math.sign(targetX - me.pos.x) || 1;
+        ctrl.press("slap"); // HOP! — brzi izmak u bijeg
       }
 
       if (mode === "wander") {

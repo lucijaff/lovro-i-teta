@@ -67,23 +67,27 @@ export const OVCA = {
   winsNeeded: 2, // meč: najbolji od 3 runde
   maxRounds: 3,
   roundTime: 45,
-  pointsToWin: 3, // bodovi za tetinu pobjedu u rundi
+  pointsToWin: 4, // bodovi za tetinu pobjedu u rundi (krevet 2× ili pod 4×)
   floorPoints: 1, // bacanje bilo gdje
   bedPoints: 2, // bacanje na krevet — vrijedi se pomučiti!
-  grabRange: 16,
-  grabCooldown: 0.9,
+  grabRange: 15,
+  grabCooldown: 1.2, // promašen pokušaj košta — mora se "resetirati"
   carryMaxTime: 2.5, // Lovro je pretežak — nakon ovoga isklizne
   carrySlowdown: 0.7, // teta hoda sporije dok ga nosi
   throwVelX: 90,
   throwVelY: -50,
-  hitInvulnTime: 1.6, // nakon bacanja/iskliznuća kratko nedodirljiv
+  hitInvulnTime: 1.8, // nakon bacanja/iskliznuća kratko nedodirljiv
   tauntRange: 44,
   tauntTime: 3,
   twerkSlowdown: 0.4,
   lovroSpeed: 115, // ovca je brža od tete
+  leapSpeed: 260, // BRZI IZMAK (X): ovčji skok u stranu
+  leapJump: 170,
+  leapCooldown: 1.1,
+  leapInvuln: 0.25, // tijekom izmaka ne može ga se zgrabiti
   ai: {
-    grabReactionMin: 0.2,
-    grabReactionMax: 0.55,
+    grabReactionMin: 0.35,
+    grabReactionMax: 0.8,
     approachInterval: 4, // svakih ~X sekundi ovca dođe provocirati
     fleeDistance: 46,
     fleeAtDive: 20,
