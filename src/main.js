@@ -13,7 +13,10 @@ const k = kaplay({
   width: SCREEN.width,
   height: SCREEN.height,
   letterbox: true,
-  crisp: true,
+  // crisp: true bi forsirao cjelobrojno skaliranje koje ODREZUJE rubove
+  // svijeta kad prozor nije točan višekratnik 320×180 — likovi uz desni
+  // zid tada "nestaju s ekrana". Letterbox bez crisp uvijek stane cijeli.
+  crisp: false,
   pixelDensity: 1,
   texFilter: "nearest",
   font: "pixel",
