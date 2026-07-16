@@ -70,7 +70,7 @@ export const OVCA = {
   pointsToWin: 4, // bodovi za tetinu pobjedu u rundi (krevet 2× ili pod 4×)
   floorPoints: 1, // bacanje bilo gdje
   bedPoints: 2, // bacanje na krevet — vrijedi se pomučiti!
-  grabRange: 15,
+  grabRange: 20,
   grabCooldown: 1.2, // promašen pokušaj košta — mora se "resetirati"
   carryMaxTime: 2.5, // Lovro je pretežak — nakon ovoga isklizne
   carrySlowdown: 0.7, // teta hoda sporije dok ga nosi
@@ -92,7 +92,7 @@ export const OVCA = {
     grabReactionMax: 0.8,
     approachInterval: 4, // svakih ~X sekundi ovca dođe provocirati
     fleeDistance: 46,
-    fleeAtDive: 20,
+    fleeAtDive: 16, // dok provocira, bježi tek kad je STVARNO gusto
   },
 };
 

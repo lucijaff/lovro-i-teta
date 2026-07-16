@@ -141,7 +141,17 @@ export function registerScene(k) {
       }
       if (teta.slapCooldown > 0) return;
       teta.slapCooldown = OVCA.grabCooldown;
-      teta.playLocked("slap", 0.2);
+      teta.playLocked("slap", 0.35);
+      // vidljiv zamah: bljesak pokazuje TOČNO dokle hvatanje seže
+      k.add([
+        k.rect(OVCA.grabRange, 24, { radius: 2 }),
+        k.pos(teta.pos.add(teta.facing * (6 + OVCA.grabRange / 2), -12)),
+        k.anchor("center"),
+        k.color(244, 244, 244),
+        k.opacity(0.35),
+        k.z(60),
+        k.lifespan(0.18, { fade: 0.18 }),
+      ]);
       const close =
         Math.abs(teta.pos.x - lovro.pos.x) <= OVCA.grabRange &&
         Math.abs(teta.pos.y - lovro.pos.y) <= 24;

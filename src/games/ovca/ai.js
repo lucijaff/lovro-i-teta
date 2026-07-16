@@ -146,7 +146,7 @@ export function createOvcaCpu(k) {
           approachT = OVCA.ai.approachInterval * (0.7 + Math.random() * 0.8);
         }
       } else if (mode === "approach") {
-        targetX = foe.pos.x + (me.pos.x > foe.pos.x ? 30 : -30);
+        targetX = foe.pos.x + (me.pos.x > foe.pos.x ? 24 : -24);
         if (modeT <= 0) mode = "wander";
       } else if (mode === "flee") {
         if (modeT <= 0) mode = "wander";
