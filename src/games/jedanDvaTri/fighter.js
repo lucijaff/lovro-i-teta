@@ -55,10 +55,16 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
         }
         this.pos.x = k.clamp(this.pos.x, 8, k.width() - 8);
 
-        // sigurnosna mreža: ako lik IKAKO propadne ispod ekrana,
-        // vrati ga na vrh da padne natrag u sobu — nitko ne smije nestati
-        if (this.pos.y > k.height() + 32) {
-          this.pos = k.vec2(k.clamp(this.pos.x, 8, k.width() - 8), 0);
+        // sigurnosna mreža: ako lik IKAKO izađe s ekrana (ispod, iznad,
+        // ili mu pozicija postane NaN), vrati ga u vidno polje da padne
+        // natrag u sobu — nitko ne smije nestati
+        const badX = !Number.isFinite(this.pos.x);
+        const badY = !Number.isFinite(this.pos.y);
+        if (badX || badY || this.pos.y > k.height() + 32 || this.pos.y < -60) {
+          this.pos = k.vec2(
+            badX ? k.width() / 2 : k.clamp(this.pos.x, 8, k.width() - 8),
+            60,
+          );
           this.vel = k.vec2(0, 0);
         }
 

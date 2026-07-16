@@ -108,13 +108,19 @@ export function registerScene(k) {
             this.vel = k.vec2(this.vel.x, -BB.bubaFlapForce);
           }
 
-          // nagli let u stranu (X) — kratki izmak kojim se bježi od zamaha
+          // nagli let u stranu (X) — kratki izmak kojim se bježi od zamaha.
+          // Smjer: strelice koje igrač drži; facing je tek rezerva.
           this.dashCd = Math.max(0, this.dashCd - dt);
           if (c.consumePress("slap") && this.dashCd <= 0) {
+            let dashDir = 0;
+            if (c.isDown("left")) dashDir -= 1;
+            if (c.isDown("right")) dashDir += 1;
+            if (dashDir === 0) dashDir = this.facing;
+            this.facing = dashDir;
             this.dashCd = BB.dashCooldown;
-            this.vel = k.vec2(this.facing * BB.dashSpeed, Math.min(this.vel.y, -40));
+            this.vel = k.vec2(dashDir * BB.dashSpeed, Math.min(this.vel.y, -40));
             this.invuln = Math.max(this.invuln, BB.dashInvuln);
-            floatText(k, this.pos.add(-this.facing * 10, -20), "BZZZUM!", "#40d8d0");
+            floatText(k, this.pos.add(-dashDir * 10, -20), "BZZZUM!", "#40d8d0");
           }
 
           // ostani na ekranu (i ispod HUD-a)

@@ -216,13 +216,21 @@ export function registerScene(k) {
       if (phase !== "playing") return;
       if (wantGrab && !teta.frozen) tryGrabOrThrow();
 
-      // BRZI IZMAK (X): ovčji skok u stranu s trenom nedodirljivosti
+      // BRZI IZMAK (X): ovčji skok u stranu s trenom nedodirljivosti.
+      // Smjer: strelice koje igrač DRŽI, a tek ako ništa ne drži — facing
+      // (facing zna biti okrenut auto-mahanjem guzom prema teti).
       leapCd = Math.max(0, leapCd - dt);
       if (wantLeap && !lovro.frozen && !carrying && !thrown && leapCd <= 0) {
+        const c = lovro.controller;
+        let leapDir = 0;
+        if (c.isDown("left")) leapDir -= 1;
+        if (c.isDown("right")) leapDir += 1;
+        if (leapDir === 0) leapDir = lovro.facing;
+        lovro.facing = leapDir;
         leapCd = OVCA.leapCooldown;
-        lovro.vel = k.vec2(lovro.facing * OVCA.leapSpeed, -OVCA.leapJump);
+        lovro.vel = k.vec2(leapDir * OVCA.leapSpeed, -OVCA.leapJump);
         lovro.invuln = Math.max(lovro.invuln, OVCA.leapInvuln);
-        floatText(k, lovro.pos.add(-lovro.facing * 10, -20), "HOP!", "#40d8d0");
+        floatText(k, lovro.pos.add(-leapDir * 10, -20), "HOP!", "#40d8d0");
       }
 
       // nošenje: ovca visi teti pod rukom, sa strane, dok je ne baci
