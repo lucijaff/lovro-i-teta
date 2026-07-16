@@ -2,11 +2,11 @@
 // Igre s ready:false vode na "USKORO!" ekran dok Lovro ne otkrije pravila.
 
 import jedanDvaTri from "./games/jedanDvaTri/index.js";
+import babaIBuba from "./games/babaIBuba/index.js";
 
 export const GAMES = [
   jedanDvaTri,
-  // Velika i mala slova su namjerna i VAŽNA: "Baba i BUBA!!!"
-  { id: "babaIBuba", title: "Baba i BUBA!!!", ready: false },
+  babaIBuba,
   { id: "ovca", title: "OVCA", ready: false },
   { id: "boba", title: "BOBA", ready: false },
 ];

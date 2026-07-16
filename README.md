@@ -39,7 +39,10 @@ Findera neće raditi jer preglednik blokira ES module s `file://`.
   **ZLATNA PLJESKA**: sljedeća pljeska pobjeđuje.
   - **Lovrina pravila:** kad je Lovro trkač, ponekad jednostavno izjavi
     "NISAM OSJETIO!" i pljeska se poništi. Da, to je namjerno. Takav je Lovro.
-- **Baba i BUBA!!!** — uskoro (čekamo pravila od Lovre; da, piše se točno tako)
+- **Baba i BUBA!!!** — teta je BABA s muholovkom, Lovro je BUBA koja leti
+  (skok = zamah krilima, radi i u zraku). Baba pobjeđuje s 3 pljasa;
+  buba pobjeđuje ako napuni PROVOKACIJU twerkanjem blizu babe (S/dolje),
+  ili ako preživi do isteka vremena. Najbolji od 3 runde.
 - **OVCA** — uskoro
 - **BOBA** — uskoro
 

@@ -32,6 +32,32 @@ export const JEDAN_DVA_TRI = {
   objectCount: 3,
 };
 
+// Baba i BUBA!!! — teta (baba) lovi Lovru (bubu) muholovkom.
+// Buba pobjeđuje twerkanjem BLIZU babe (puni "provokaciju") ili bijegom do isteka.
+export const BABA_I_BUBA = {
+  winsNeeded: 2, // meč: najbolji od 3 runde
+  maxRounds: 3,
+  roundTime: 45,
+  swatsToWin: 3, // koliko puta baba mora pljesnuti bubu
+  swatCooldown: 0.55,
+  swatReach: 20,
+  hitInvulnTime: 1.2, // buba nakon udarca kratko nedodirljiva
+  tauntRange: 44, // koliko blizu babe twerk puni provokaciju
+  tauntTime: 3, // ukupno sekundi bliskog twerkanja za pobjedu
+  twerkSlowdown: 0.4, // buba se sporo šulja dok twerka
+  bubaSpeed: 115, // buba je brža od babe
+  bubaGravityScale: 0.5, // buba lebdi
+  bubaFlapForce: 190, // zamah krilima (može i u zraku!)
+  ai: {
+    // baba (CPU)
+    swatReactionMin: 0.15,
+    swatReactionMax: 0.5,
+    // buba (CPU)
+    diveInterval: 4, // svakih ~X sekundi buba se spusti provocirati
+    fleeDistance: 26, // pobjegne kad je baba ovako blizu
+  },
+};
+
 // "Lovrina pravila" — Lovro izmišlja pravila u hodu, pogotovo kad gubi.
 // Kad je Lovro trkač i pljeska ga zakonito pogodi, ponekad jednostavno
 // izjavi da nije bilo ništa ("NISAM OSJETIO!") i pljeska se poništi.

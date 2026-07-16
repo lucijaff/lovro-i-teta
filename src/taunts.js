@@ -34,3 +34,13 @@ export const gameTaunts = {
   // tetina reakcija na Lovrino poricanje
   tetaDenyReact: ["MA DAJ!", "JESAM TE!", "LOVRO!!!"],
 };
+
+// Baba i BUBA!!!
+export const babaBubaTaunts = {
+  // buba (Lovro) zuji i provocira
+  buba: ["BZZZZZ!", "NE MOŽEŠ ME ULOVITI!", "BABA, TI SI BEBA!", "BZZZ BZZZ!"],
+  // baba (teta) gubi živce
+  babaAngry: ["DOSADNA BUBO!", "SAD ĆU TE!", "DOĐI OVAMO!", "MIR, BUBO!"],
+  // baba kad pogodi
+  babaSwat: ["IMAM TE!", "TAKO TI I TREBA!"],
+};

@@ -22,6 +22,16 @@ export const STR = {
   matchWin: (name) => `${name} POBJEĐUJE!`,
   invalid: "NE VRIJEDI!",
   lovroRule: "LOVRINO PRAVILO!",
+
+  // Baba i BUBA!!!
+  bbIntroBaba: "TI SI BABA — PLJESNI BUBU 3 PUTA!",
+  bbIntroBuba: "TI SI BUBA — BJEŽI I TWERKAJ UZ BABU!",
+  bbSplat: "PLJAS!",
+  bbBabaRound: "BABA JE PLJESNULA BUBU!",
+  bbBubaMeterRound: "BABA JE ISPROVOCIRANA!",
+  bbBubaTimeRound: "BUBA JE POBJEGLA!",
+  bbMeterLabel: "PROVOKACIJA",
+  bbFly: "SKOK/GORE = LET (MAŠI KRILIMA!)",
   taps: ["JEDAN!", "DVA!", "TRI!!!"],
 
   again: "PONOVNO",
