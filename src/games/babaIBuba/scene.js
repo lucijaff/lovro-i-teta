@@ -115,7 +115,8 @@ export function registerScene(k) {
             let dashDir = 0;
             if (c.isDown("left")) dashDir -= 1;
             if (c.isDown("right")) dashDir += 1;
-            if (dashDir === 0) dashDir = this.facing;
+            // bez strelica: izmak je BIJEG — odleti OD tete
+            if (dashDir === 0) dashDir = Math.sign(this.pos.x - baba.pos.x) || this.facing;
             this.facing = dashDir;
             this.dashCd = BB.dashCooldown;
             this.vel = k.vec2(dashDir * BB.dashSpeed, Math.min(this.vel.y, -40));

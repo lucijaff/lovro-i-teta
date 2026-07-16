@@ -46,13 +46,12 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
         this.invuln = Math.max(0, this.invuln - dt);
         this.opacity = this.invuln > 0 ? (Math.floor(k.time() * 14) % 2 === 0 ? 1 : 0.35) : 1;
 
-        // tijela nemaju trenje: vodoravna brzina (npr. od bacanja u Ovci)
-        // gasi se na tlu — u zraku ostaje da bacanje ima pravi luk.
-        // Klampanje na ekran vrijedi i dok je lik smrznut, inače ga
-        // zaostala brzina tijekom najave runde tiho odveze s ekrana.
-        if (this.isGrounded()) {
-          this.vel = k.vec2(this.vel.x * Math.max(0, 1 - 10 * dt), this.vel.y);
-        }
+        // tijela nemaju trenje: vodoravna brzina (od izmaka/bacanja) gasi
+        // se brzo na tlu, a polako i u zraku — luk ostaje, ali zaostala
+        // brzina ne smije vječno pritiskati lika u zid.
+        // Klampanje na ekran vrijedi i dok je lik smrznut.
+        const friction = this.isGrounded() ? 10 : 2.5;
+        this.vel = k.vec2(this.vel.x * Math.max(0, 1 - friction * dt), this.vel.y);
         this.pos.x = k.clamp(this.pos.x, 8, k.width() - 8);
 
         // sigurnosna mreža: ako lik IKAKO izađe s ekrana (ispod, iznad,
@@ -80,6 +79,12 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
         if (c.isDown("left")) dir -= 1;
         if (c.isDown("right")) dir += 1;
         if (dir !== 0) this.facing = dir;
+
+        // igrač koji drži SUPROTAN smjer brzo gasi zaostalu brzinu —
+        // upravljanje uvijek pobjeđuje ostatke izmaka/bacanja
+        if (dir !== 0 && Math.sign(this.vel.x) === -dir) {
+          this.vel = k.vec2(this.vel.x * Math.max(0, 1 - 14 * dt), this.vel.y);
+        }
 
         const speed = PHYSICS.moveSpeed * this.speedMul * (this.heldObject ? JDT.holdSlowdown : 1);
         if (dir !== 0) this.move(dir * speed, 0);

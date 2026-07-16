@@ -225,7 +225,8 @@ export function registerScene(k) {
         let leapDir = 0;
         if (c.isDown("left")) leapDir -= 1;
         if (c.isDown("right")) leapDir += 1;
-        if (leapDir === 0) leapDir = lovro.facing;
+        // bez strelica: izmak je BIJEG — skoči OD tete, ne "kud gledaš"
+        if (leapDir === 0) leapDir = Math.sign(lovro.pos.x - teta.pos.x) || lovro.facing;
         lovro.facing = leapDir;
         leapCd = OVCA.leapCooldown;
         lovro.vel = k.vec2(leapDir * OVCA.leapSpeed, -OVCA.leapJump);
