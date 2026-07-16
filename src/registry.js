@@ -3,11 +3,12 @@
 
 import jedanDvaTri from "./games/jedanDvaTri/index.js";
 import babaIBuba from "./games/babaIBuba/index.js";
+import ovca from "./games/ovca/index.js";
 
 export const GAMES = [
   jedanDvaTri,
   babaIBuba,
-  { id: "ovca", title: "OVCA", ready: false },
+  ovca,
   { id: "boba", title: "BOBA", ready: false },
 ];
 

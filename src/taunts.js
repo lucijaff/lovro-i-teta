@@ -35,6 +35,18 @@ export const gameTaunts = {
   tetaDenyReact: ["MA DAJ!", "JESAM TE!", "LOVRO!!!"],
 };
 
+// OVCA — Lovro bleji, teta gubi živce.
+export const ovcaTaunts = {
+  // Lovro (glumi ovcu)
+  lovro: ["BEEE!", "BEEEE, TETA!", "BEEE BEEE!", "NEĆEŠ ME ULOVITI, BEEE!"],
+  // teta dok ga lovi
+  tetaAngry: ["LOVRO, DOSTA!", "SAD ĆU TE ULOVITI!", "DOĐI OVAMO!"],
+  // teta kad ga zgrabi
+  tetaCatch: ["IMAM TE!", "SAD ĆEŠ VIDJETI!"],
+  // teta kad ga baci
+  tetaThrow: ["EVO GA DOLJE!", "TAKO!"],
+};
+
 // Baba i BUBA!!!
 // VAŽNO: oni se NIKAD ne zovu "baba" i "buba" — uvijek su Lovro i teta.
 export const babaBubaTaunts = {

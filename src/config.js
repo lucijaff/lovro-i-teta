@@ -61,6 +61,35 @@ export const BABA_I_BUBA = {
   },
 };
 
+// OVCA — Lovro je ovca (i dalje izgleda kao Lovro), teta ga lovi,
+// diže iznad glave i baca dolje. Krevet vrijedi duplo!
+export const OVCA = {
+  winsNeeded: 2, // meč: najbolji od 3 runde
+  maxRounds: 3,
+  roundTime: 45,
+  pointsToWin: 3, // bodovi za tetinu pobjedu u rundi
+  floorPoints: 1, // bacanje bilo gdje
+  bedPoints: 2, // bacanje na krevet — vrijedi se pomučiti!
+  grabRange: 16,
+  grabCooldown: 0.9,
+  carryMaxTime: 2.5, // Lovro je pretežak — nakon ovoga isklizne
+  carrySlowdown: 0.7, // teta hoda sporije dok ga nosi
+  throwVelX: 90,
+  throwVelY: -50,
+  hitInvulnTime: 1.6, // nakon bacanja/iskliznuća kratko nedodirljiv
+  tauntRange: 44,
+  tauntTime: 3,
+  twerkSlowdown: 0.4,
+  lovroSpeed: 115, // ovca je brža od tete
+  ai: {
+    grabReactionMin: 0.2,
+    grabReactionMax: 0.55,
+    approachInterval: 4, // svakih ~X sekundi ovca dođe provocirati
+    fleeDistance: 46,
+    fleeAtDive: 20,
+  },
+};
+
 // "Lovrina pravila" — Lovro izmišlja pravila u hodu, pogotovo kad gubi.
 // Kad je Lovro trkač i pljeska ga zakonito pogodi, ponekad jednostavno
 // izjavi da nije bilo ništa ("NISAM OSJETIO!") i pljeska se poništi.

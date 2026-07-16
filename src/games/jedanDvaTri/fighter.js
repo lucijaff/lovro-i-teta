@@ -20,6 +20,7 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
       heldObject: null,
       slapCooldown: 0,
       invuln: 0, // nakon primljene pljeske kratko nedodirljiv
+      speedMul: 1, // po-igri prilagodba brzine (npr. ovca je brža)
       animLock: 0,
       frozen: true,
       _anim: null,
@@ -58,7 +59,7 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
         if (c.isDown("right")) dir += 1;
         if (dir !== 0) this.facing = dir;
 
-        const speed = PHYSICS.moveSpeed * (this.heldObject ? JDT.holdSlowdown : 1);
+        const speed = PHYSICS.moveSpeed * this.speedMul * (this.heldObject ? JDT.holdSlowdown : 1);
         if (dir !== 0) this.move(dir * speed, 0);
 
         if (c.consumePress("jump") && this.isGrounded()) {

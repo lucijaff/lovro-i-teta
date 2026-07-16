@@ -46,7 +46,11 @@ Findera neće raditi jer preglednik blokira ES module s `file://`.
   Lovro ima i BRZI IZMAK (X): nagli let u stranu s trenom nedodirljivosti —
   dobro tempiran izmak pobjeđuje zamah muholovke.
   (U igri se nitko ne zove "baba" ni "buba" — to je samo naziv igre.)
-- **OVCA** — uskoro
+- **OVCA** — Lovro glumi ovcu (bleji, brz je), teta ga pokušava uloviti (X),
+  podići iznad glave i baciti dolje. Bacanje bilo gdje = 1 bod, na KREVET
+  = 2 boda — ali pretežak je za dugo nošenje, isklizne nakon par sekundi.
+  Kad te zgrabi, zgrabila te — nema otimanja. 3 boda za tetinu rundu;
+  Lovro pobjeđuje provokacijom (maši guzom uz tetu) ili bijegom do isteka.
 - **BOBA** — uskoro
 
 ## Kako dodati nove Lovrine izjave

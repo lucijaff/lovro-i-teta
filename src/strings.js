@@ -32,6 +32,13 @@ export const STR = {
   bbBubaTimeRound: "LOVRO JE POBJEGAO!",
   bbMeterLabel: "PROVOKACIJA",
   bbFly: "SKOK/GORE = LET   X = BRZI IZMAK!",
+
+  // OVCA (Lovrove pobjede i metar dijele tekstove s Baba i BUBA)
+  ovIntroTeta: "BACI LOVRU DOLJE — KREVET VRIJEDI 2!",
+  ovThrowRound: "TETA GA JE BACILA DOLJE!",
+  ovTres: "TRES!",
+  ovBedBonus: "NA KREVET! +2",
+  ovGrabHint: "X = ULOVI / BACI",
   taps: ["JEDAN!", "DVA!", "TRI!!!"],
 
   again: "PONOVNO",
