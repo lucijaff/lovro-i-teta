@@ -50,7 +50,7 @@ export const BABA_I_BUBA = {
   bubaFlapForce: 210, // zamah krilima (može i u zraku!)
   dashSpeed: 300, // buba: nagli let u stranu (X)
   dashCooldown: 1.1,
-  dashInvuln: 0.25, // tijekom naglog leta pljas ne vrijedi — pravi izmak!
+  dashInvuln: 0.4, // pokriva cijeli zum — pljas ne vrijedi ni na pola puta
   ai: {
     // baba (CPU)
     swatReactionMin: 0.25,
@@ -85,7 +85,8 @@ export const OVCA = {
   leapSpeed: 260, // BRZI IZMAK (X): ovčji skok u stranu
   leapJump: 170,
   leapCooldown: 1.1,
-  leapInvuln: 0.25, // tijekom izmaka ne može ga se zgrabiti
+  leapInvuln: 0.5, // pokriva CIJELI luk skoka — izmak kroz tetu ne smije
+  // završiti u njenim rukama na pola puta
   ai: {
     grabReactionMin: 0.35,
     grabReactionMax: 0.8,
