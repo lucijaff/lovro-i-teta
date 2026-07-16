@@ -99,8 +99,11 @@ export function createBubaCpu(k) {
 
       const foeDist = me.pos.dist(foe.pos);
 
-      // teta preblizu → bijeg, s naglim izmakom (X) za start
-      if (mode !== "flee" && foeDist < BB.ai.fleeDistance) {
+      // teta preblizu → bijeg, s naglim izmakom (X) za start.
+      // Tijekom namjernog obrušavanja (dive) bježi tek kad je STVARNO gusto,
+      // inače bi svaki pokušaj provokacije sam sebe prekinuo.
+      const fleeAt = mode === "dive" ? 20 : BB.ai.fleeDistance;
+      if (mode !== "flee" && foeDist < fleeAt) {
         mode = "flee";
         modeT = 1.2;
         target = { x: me.pos.x < 160 ? 290 : 30, y: 45 };
@@ -136,8 +139,9 @@ export function createBubaCpu(k) {
       const dx = target.x - me.pos.x;
       ctrl.hold("left", dx < -5);
       ctrl.hold("right", dx > 5);
-      // maši krilima: kad je ispod cilja ili počne padati prebrzo
-      if (flapT <= 0 && (me.pos.y > target.y + 4 || me.vel.y > 70)) {
+      // maši krilima: kad je ispod cilja — a protiv brzog pada samo ako
+      // cilj NIJE duboko ispod (inače se pusti da padne i stvarno se spusti)
+      if (flapT <= 0 && (me.pos.y > target.y + 4 || (me.vel.y > 70 && me.pos.y > target.y - 16))) {
         ctrl.press("jump");
         flapT = 0.14;
       }
