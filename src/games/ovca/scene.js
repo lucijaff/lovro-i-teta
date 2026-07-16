@@ -251,9 +251,11 @@ export function registerScene(k) {
         lovro.facing = Math.sign(lovro.pos.x - teta.pos.x) || lovro.facing;
       }
 
-      // provokacija: Lovro maše guzom dovoljno blizu tete
-      if (twerking && lovro.pos.dist(teta.pos) <= OVCA.tauntRange) {
-        meter += dt;
+      // provokacija: Lovro maše guzom dovoljno blizu tete.
+      // Što bliže, to brže puni (do 2×) — hrabrost se isplati!
+      const tetaDist = lovro.pos.dist(teta.pos);
+      if (twerking && tetaDist <= OVCA.tauntRange) {
+        meter += dt * (2 - tetaDist / OVCA.tauntRange);
         hud.setMeter(meter / OVCA.tauntTime);
         if (Math.random() < 0.06) floatText(k, lovro.pos.add(0, -30), "BEEE!", "#f8b820");
         const frac = meter / OVCA.tauntTime;

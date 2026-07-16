@@ -77,8 +77,9 @@ export const OVCA = {
   throwVelX: 90,
   throwVelY: -50,
   hitInvulnTime: 1.8, // nakon bacanja/iskliznuća kratko nedodirljiv
-  tauntRange: 44,
-  tauntTime: 3,
+  tauntRange: 52,
+  tauntTime: 2.6, // sekundi mahanja za punu provokaciju...
+  // ...ali što bliže teti, to brže puni (do 2× tik uz nju)!
   twerkSlowdown: 0.4,
   lovroSpeed: 115, // ovca je brža od tete
   leapSpeed: 260, // BRZI IZMAK (X): ovčji skok u stranu
