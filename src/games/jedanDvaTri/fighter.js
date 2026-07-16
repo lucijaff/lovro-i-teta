@@ -55,6 +55,13 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
         }
         this.pos.x = k.clamp(this.pos.x, 8, k.width() - 8);
 
+        // sigurnosna mreža: ako lik IKAKO propadne ispod ekrana,
+        // vrati ga na vrh da padne natrag u sobu — nitko ne smije nestati
+        if (this.pos.y > k.height() + 32) {
+          this.pos = k.vec2(k.clamp(this.pos.x, 8, k.width() - 8), 0);
+          this.vel = k.vec2(0, 0);
+        }
+
         if (this.frozen) {
           if (this.animLock <= 0) this.playIf(this.heldObject ? "hold" : "idle");
           return;

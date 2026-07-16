@@ -229,16 +229,22 @@ export function registerScene(k) {
       // ili dok joj ne isklizne
       if (carrying) {
         carryT += dt;
-        lovro.pos = teta.pos.add(teta.facing * 12, -14);
+        // klampano da nošenje uz rub ne gurne ovcu izvan ekrana
+        lovro.pos = k.vec2(
+          k.clamp(teta.pos.x + teta.facing * 12, 8, k.width() - 8),
+          teta.pos.y - 14,
+        );
         lovro.facing = teta.facing;
         lovro.vel = k.vec2(0, 0);
         if (carryT >= OVCA.carryMaxTime) releaseLovro({ escaped: true });
       }
 
-      // bačena ovca: kad sleti, broje se bodovi (krevet vrijedi duplo)
+      // bačena ovca: kad sleti, broje se bodovi (krevet vrijedi duplo).
+      // Ako slijetanje iz bilo kojeg razloga ne sjedne u 2s, bacanje se
+      // svejedno razriješi — nitko ne smije ostati zamrznut u letu.
       if (thrown) {
         thrownAirT += dt;
-        if (thrownAirT > 0.15 && lovro.isGrounded()) landThrow();
+        if ((thrownAirT > 0.15 && lovro.isGrounded()) || thrownAirT > 2) landThrow();
       }
 
       timeLeft -= dt;
