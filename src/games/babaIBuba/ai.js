@@ -117,7 +117,7 @@ export function createBubaCpu(k) {
           diveT = BB.ai.diveInterval * (0.7 + Math.random() * 0.8);
         }
       } else if (mode === "dive") {
-        // sleti do babe i twerkaj joj u lice
+        // sleti do tete i maši joj guzom pred nosom
         target = { x: foe.pos.x + (me.pos.x > foe.pos.x ? 24 : -24), y: foe.pos.y - 14 };
         if (modeT <= 0) {
           mode = "wander";
@@ -139,7 +139,7 @@ export function createBubaCpu(k) {
         ctrl.press("jump");
         flapT = 0.14;
       }
-      // twerkaj kad si u zoni provokacije
+      // maši guzom kad si u zoni provokacije
       ctrl.hold("twerk", mode === "dive" && me.pos.dist(foe.pos) <= BB.tauntRange - 4);
     },
   };

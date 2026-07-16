@@ -36,11 +36,12 @@ export const gameTaunts = {
 };
 
 // Baba i BUBA!!!
+// VAŽNO: oni se NIKAD ne zovu "baba" i "buba" — uvijek su Lovro i teta.
 export const babaBubaTaunts = {
-  // buba (Lovro) zuji i provocira
-  buba: ["BZZZZZ!", "NE MOŽEŠ ME ULOVITI!", "BABA, TI SI BEBA!", "BZZZ BZZZ!"],
-  // baba (teta) gubi živce
-  babaAngry: ["DOSADNA BUBO!", "SAD ĆU TE!", "DOĐI OVAMO!", "MIR, BUBO!"],
-  // baba kad pogodi
+  // Lovro (glumi bubu) zuji i provocira
+  buba: ["BZZZZZ!", "NE MOŽEŠ ME ULOVITI!", "TETA, TI SI BEBA!", "BZZZ BZZZ!"],
+  // teta gubi živce
+  babaAngry: ["LOVRO, DOSTA!", "SAD ĆU TE!", "DOĐI OVAMO!", "MIR, LOVRO!"],
+  // teta kad pogodi
   babaSwat: ["IMAM TE!", "TAKO TI I TREBA!"],
 };

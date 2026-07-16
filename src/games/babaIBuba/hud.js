@@ -10,8 +10,8 @@ export function createHud(k, swatsToWin = 3) {
 
   k.add([k.rect(k.width(), 24), k.pos(0, 0), k.color(dark), k.opacity(0.8), k.z(100)]);
 
-  // lijevo: BUBA + provokacija-metar
-  k.add([k.text("BUBA", { size: 8 }), k.pos(4, 4), k.color(white), k.z(101)]);
+  // lijevo: LOVRO + provokacija-metar
+  k.add([k.text("LOVRO", { size: 8 }), k.pos(4, 4), k.color(white), k.z(101)]);
   const METER_W = 56;
   k.add([
     k.rect(METER_W + 2, 8),
@@ -33,9 +33,9 @@ export function createHud(k, swatsToWin = 3) {
     k.z(101),
   ]);
 
-  // desno: BABA + pljas-pločice
+  // desno: TETA + pljas-pločice
   k.add([
-    k.text("BABA", { size: 8 }),
+    k.text("TETA", { size: 8 }),
     k.pos(k.width() - 4, 4),
     k.anchor("topright"),
     k.color(white),

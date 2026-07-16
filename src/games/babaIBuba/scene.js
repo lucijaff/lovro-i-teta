@@ -1,10 +1,11 @@
-// Baba i BUBA!!! — teta je BABA s muholovkom, Lovro je BUBA koja leti.
-// Baba pobjeđuje s 3 pljasa. Buba pobjeđuje twerkanjem UZ babu (puni
-// "provokaciju") ili bijegom do isteka vremena.
+// Baba i BUBA!!! — teta ima muholovku, Lovro glumi bubu i leti.
+// Teta pobjeđuje s 3 pljasa. Lovro pobjeđuje mašući guzom UZ tetu
+// (puni "provokaciju") ili bijegom do isteka vremena.
+// U tekstu igre se NIKAD ne koriste "baba"/"buba" ni "twerk" —
+// oni su uvijek Lovro i teta, a twerk je "mahanje guzom".
 
 import { BABA_I_BUBA as BB } from "../../config.js";
 import { session } from "../../state.js";
-import { CHARACTERS } from "../../sprites/characters.js";
 import { keyboardController } from "../../input.js";
 import { STR } from "../../strings.js";
 import { babaBubaTaunts } from "../../taunts.js";
@@ -23,7 +24,7 @@ export function registerScene(k) {
   k.scene("babaIBuba", () => {
     const playerChar = session.playerCharacter; // "teta" → baba, "lovro" → buba
     const bubbleUp = { offset: k.vec2(0, -28) };
-    const bubbleBug = { offset: k.vec2(0, -16) };
+    const bubbleBug = bubbleUp; // Lovro je normalne veličine, samo glumi bubu
 
     buildLevel(k);
 
@@ -43,14 +44,14 @@ export function registerScene(k) {
       swatter.angle = f * (swinging ? 100 : 25);
     });
 
-    // BUBA — leteći Lovro-kukac
+    // BUBA — obični Lovro koji se samo PONAŠA kao buba: leti mahanjem
+    // "krila" (skok radi i u zraku) i twerka svojim pravim twerkom.
     const buba = k.add([
-      k.sprite("buba"),
+      k.sprite("lovro"),
       k.pos(BUBA_SPAWN.x, BUBA_SPAWN.y),
-      k.anchor("center"),
-      k.area({ scale: k.vec2(0.8, 0.7), collisionIgnore: ["fighter"] }),
+      k.anchor("bot"),
+      k.area({ scale: k.vec2(0.62, 0.95), collisionIgnore: ["fighter"] }),
       k.body({ gravityScale: BB.bubaGravityScale }),
-      k.rotate(0),
       k.opacity(1),
       k.z(10),
       "buba",
@@ -58,25 +59,33 @@ export function registerScene(k) {
         controller: null,
         facing: 1,
         invuln: 0,
-        spinT: 0,
+        animLock: 0,
         frozen: true,
         twerking: false,
         celebrate: false,
+        _anim: null,
+        playIf(anim) {
+          if (this._anim !== anim) {
+            this._anim = anim;
+            this.play(anim);
+          }
+        },
+        playLocked(anim, t) {
+          this._anim = anim;
+          this.play(anim);
+          this.animLock = t;
+        },
         update() {
           const dt = k.dt();
           this.invuln = Math.max(0, this.invuln - dt);
-          this.spinT = Math.max(0, this.spinT - dt);
+          if (this.animLock > 0) this.animLock -= dt;
           this.opacity = this.invuln > 0 ? (Math.floor(k.time() * 14) % 2 === 0 ? 1 : 0.35) : 1;
+          this.flipX = this.facing < 0;
 
-          if (this.spinT > 0) {
-            this.angle += 1400 * dt; // zavrti se od pljasa
-          } else if (this.twerking || this.celebrate) {
-            this.angle = Math.sin(k.time() * 22) * 18; // guza maše
-          } else {
-            this.angle = Math.sin(k.time() * 6) * 4; // lagano zujanje
+          if (this.frozen) {
+            if (this.animLock <= 0) this.playIf(this.celebrate ? "twerk" : "idle");
+            return;
           }
-
-          if (this.frozen) return;
           const c = this.controller;
           if (!c) return;
 
@@ -84,27 +93,35 @@ export function registerScene(k) {
           if (c.isDown("left")) dir -= 1;
           if (c.isDown("right")) dir += 1;
           if (dir !== 0) this.facing = dir;
-          this.flipX = this.facing < 0;
           this.twerking = c.isDown("twerk");
 
           const speed = BB.bubaSpeed * (this.twerking ? BB.twerkSlowdown : 1);
           if (dir !== 0) this.move(dir * speed, 0);
 
-          // mahni krilima — radi i u zraku, buba je buba
+          // mahni krilima — radi i u zraku, Lovro je sad buba
           if (c.consumePress("jump")) {
             this.vel = k.vec2(this.vel.x, -BB.bubaFlapForce);
           }
 
           // ostani na ekranu (i ispod HUD-a)
           this.pos.x = k.clamp(this.pos.x, 8, k.width() - 8);
-          if (this.pos.y < 32) {
-            this.pos.y = 32;
+          if (this.pos.y < 54) {
+            this.pos.y = 54;
             this.vel = k.vec2(this.vel.x, Math.max(0, this.vel.y));
+          }
+
+          if (this.animLock <= 0) {
+            let anim;
+            if (this.twerking) anim = "twerk"; // maše guzom i u letu, naravno
+            else if (!this.isGrounded()) anim = "jump";
+            else if (dir !== 0) anim = "run";
+            else anim = "idle";
+            this.playIf(anim);
           }
         },
       },
     ]);
-    buba.play("fly");
+    buba.play("idle");
 
     // upravljanje: igrač dobiva svoju stranu, CPU drugu
     const kb = keyboardController(k);

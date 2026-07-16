@@ -23,13 +23,13 @@ export const STR = {
   invalid: "NE VRIJEDI!",
   lovroRule: "LOVRINO PRAVILO!",
 
-  // Baba i BUBA!!!
-  bbIntroBaba: "TI SI BABA — PLJESNI BUBU 3 PUTA!",
-  bbIntroBuba: "TI SI BUBA — BJEŽI I TWERKAJ UZ BABU!",
+  // Baba i BUBA!!! (naziv igre — ali oni su uvijek Lovro i teta!)
+  bbIntroBaba: "PLJESNI LOVRU MUHOLOVKOM 3 PUTA!",
+  bbIntroBuba: "BJEŽI I MAŠI GUZOM BLIZU TETE!",
   bbSplat: "PLJAS!",
-  bbBabaRound: "BABA JE PLJESNULA BUBU!",
-  bbBubaMeterRound: "BABA JE ISPROVOCIRANA!",
-  bbBubaTimeRound: "BUBA JE POBJEGLA!",
+  bbBabaRound: "TETA JE PLJESNULA LOVRU!",
+  bbBubaMeterRound: "TETA JE ISPROVOCIRANA!",
+  bbBubaTimeRound: "LOVRO JE POBJEGAO!",
   bbMeterLabel: "PROVOKACIJA",
   bbFly: "SKOK/GORE = LET (MAŠI KRILIMA!)",
   taps: ["JEDAN!", "DVA!", "TRI!!!"],
