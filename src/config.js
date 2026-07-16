@@ -74,8 +74,11 @@ export const OVCA = {
   grabCooldown: 1.2, // promašen pokušaj košta — mora se "resetirati"
   carryMaxTime: 2.5, // Lovro je pretežak — nakon ovoga isklizne
   carrySlowdown: 0.7, // teta hoda sporije dok ga nosi
-  throwVelX: 90,
-  throwVelY: -50,
+  // Bacanje je TRES DOLJE pred njom, ne izbačaj preko pola sobe —
+  // veliki vodoravni zamah je prebacivao krevet pa je "bacanje na
+  // krevet" slijetalo na pod iza uzglavlja (1 bod umjesto 2).
+  throwVelX: 35,
+  throwVelY: -40,
   hitInvulnTime: 1.8, // nakon bacanja/iskliznuća kratko nedodirljiv
   tauntRange: 52,
   tauntTime: 2.6, // sekundi mahanja za punu provokaciju...
