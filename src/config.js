@@ -39,22 +39,25 @@ export const BABA_I_BUBA = {
   maxRounds: 3,
   roundTime: 45,
   swatsToWin: 3, // koliko puta baba mora pljesnuti bubu
-  swatCooldown: 0.55,
-  swatReach: 20,
-  hitInvulnTime: 1.2, // buba nakon udarca kratko nedodirljiva
-  tauntRange: 44, // koliko blizu babe twerk puni provokaciju
-  tauntTime: 3, // ukupno sekundi bliskog twerkanja za pobjedu
-  twerkSlowdown: 0.4, // buba se sporo šulja dok twerka
-  bubaSpeed: 115, // buba je brža od babe
+  swatCooldown: 0.8, // muholovka se mora "napeti" između zamaha
+  swatReach: 17,
+  hitInvulnTime: 1.6, // buba nakon udarca kratko nedodirljiva
+  tauntRange: 44, // koliko blizu babe mahanje guzom puni provokaciju
+  tauntTime: 3, // ukupno sekundi bliskog mahanja za pobjedu
+  twerkSlowdown: 0.4, // buba se sporo šulja dok maše guzom
+  bubaSpeed: 130, // buba je osjetno brža od babe
   bubaGravityScale: 0.5, // buba lebdi
-  bubaFlapForce: 190, // zamah krilima (može i u zraku!)
+  bubaFlapForce: 210, // zamah krilima (može i u zraku!)
+  dashSpeed: 300, // buba: nagli let u stranu (X)
+  dashCooldown: 1.1,
+  dashInvuln: 0.25, // tijekom naglog leta pljas ne vrijedi — pravi izmak!
   ai: {
     // baba (CPU)
-    swatReactionMin: 0.15,
-    swatReactionMax: 0.5,
+    swatReactionMin: 0.25,
+    swatReactionMax: 0.7,
     // buba (CPU)
     diveInterval: 4, // svakih ~X sekundi buba se spusti provocirati
-    fleeDistance: 26, // pobjegne kad je baba ovako blizu
+    fleeDistance: 40, // pobjegne kad je baba ovako blizu
   },
 };
 

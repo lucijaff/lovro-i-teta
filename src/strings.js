@@ -31,7 +31,7 @@ export const STR = {
   bbBubaMeterRound: "TETA JE ISPROVOCIRANA!",
   bbBubaTimeRound: "LOVRO JE POBJEGAO!",
   bbMeterLabel: "PROVOKACIJA",
-  bbFly: "SKOK/GORE = LET (MAŠI KRILIMA!)",
+  bbFly: "SKOK/GORE = LET   X = BRZI IZMAK!",
   taps: ["JEDAN!", "DVA!", "TRI!!!"],
 
   again: "PONOVNO",

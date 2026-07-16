@@ -51,18 +51,18 @@ export function createHud(k, swatsToWin = 3) {
     ]),
   );
 
-  // sredina: runda + vrijeme
+  // sredina: runda i vrijeme jedno uz drugo u gornjem redu,
+  // da se donji red ne sudara s natpisom PROVOKACIJA
   const roundText = k.add([
     k.text("", { size: 8 }),
-    k.pos(k.width() / 2, 4),
-    k.anchor("top"),
+    k.pos(k.width() / 2 - 4, 4),
+    k.anchor("topright"),
     k.color(gold),
     k.z(101),
   ]);
   const timeText = k.add([
     k.text("", { size: 8 }),
-    k.pos(k.width() / 2, 13),
-    k.anchor("top"),
+    k.pos(k.width() / 2 + 4, 4),
     k.color(white),
     k.z(101),
   ]);

@@ -99,11 +99,13 @@ export function createBubaCpu(k) {
 
       const foeDist = me.pos.dist(foe.pos);
 
-      // baba preblizu → bijeg (osim ako baš twerkamo pa riskiramo trenutak)
+      // teta preblizu → bijeg, s naglim izmakom (X) za start
       if (mode !== "flee" && foeDist < BB.ai.fleeDistance) {
         mode = "flee";
         modeT = 1.2;
         target = { x: me.pos.x < 160 ? 290 : 30, y: 45 };
+        me.facing = Math.sign(me.pos.x - foe.pos.x) || 1;
+        ctrl.press("slap"); // BZZZUM!
       }
 
       if (mode === "wander") {

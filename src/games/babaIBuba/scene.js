@@ -59,6 +59,7 @@ export function registerScene(k) {
         controller: null,
         facing: 1,
         invuln: 0,
+        dashCd: 0,
         animLock: 0,
         frozen: true,
         twerking: false,
@@ -82,6 +83,10 @@ export function registerScene(k) {
           this.opacity = this.invuln > 0 ? (Math.floor(k.time() * 14) % 2 === 0 ? 1 : 0.35) : 1;
           this.flipX = this.facing < 0;
 
+          // odbačaj od pljasa se brzo gasi — tijela nemaju trenje, pa bi
+          // vodoravna brzina inače ostala zauvijek i prikovala ga uz zid
+          this.vel = k.vec2(this.vel.x * Math.max(0, 1 - 8 * dt), this.vel.y);
+
           if (this.frozen) {
             if (this.animLock <= 0) this.playIf(this.celebrate ? "twerk" : "idle");
             return;
@@ -101,6 +106,15 @@ export function registerScene(k) {
           // mahni krilima — radi i u zraku, Lovro je sad buba
           if (c.consumePress("jump")) {
             this.vel = k.vec2(this.vel.x, -BB.bubaFlapForce);
+          }
+
+          // nagli let u stranu (X) — kratki izmak kojim se bježi od zamaha
+          this.dashCd = Math.max(0, this.dashCd - dt);
+          if (c.consumePress("slap") && this.dashCd <= 0) {
+            this.dashCd = BB.dashCooldown;
+            this.vel = k.vec2(this.facing * BB.dashSpeed, Math.min(this.vel.y, -40));
+            this.invuln = Math.max(this.invuln, BB.dashInvuln);
+            floatText(k, this.pos.add(-this.facing * 10, -20), "BZZZUM!", "#40d8d0");
           }
 
           // ostani na ekranu (i ispod HUD-a)
@@ -175,14 +189,25 @@ export function registerScene(k) {
       });
 
       if (!playerIsBaba && match.round === 1) {
+        // tamna traka ispod, da se tekst vidi preko poda
+        const strip = k.add([
+          k.rect(k.width(), 13),
+          k.pos(0, k.height() - 13),
+          k.color(26, 28, 44),
+          k.opacity(0.85),
+          k.z(149),
+        ]);
         const hint = k.add([
           k.text(STR.bbFly, { size: 8 }),
-          k.pos(k.width() / 2, 174),
+          k.pos(k.width() / 2, k.height() - 7),
           k.anchor("center"),
-          k.color(140, 130, 150),
+          k.color(244, 244, 244),
           k.z(150),
         ]);
-        k.wait(5, () => hint.destroy());
+        k.wait(5, () => {
+          strip.destroy();
+          hint.destroy();
+        });
       }
     }
 
@@ -191,7 +216,7 @@ export function registerScene(k) {
       baba.slapCooldown = BB.swatCooldown;
       baba.playLocked("slap", 0.25);
       const sensor = k.add([
-        k.rect(BB.swatReach, 26),
+        k.rect(BB.swatReach, 22),
         k.opacity(0),
         k.pos(baba.pos.add(baba.facing * (8 + BB.swatReach / 2), -16)),
         k.anchor("center"),
@@ -263,7 +288,12 @@ export function registerScene(k) {
       timeLeft -= dt;
       hud.setTime(timeLeft);
 
-      // provokacija: buba twerka dovoljno blizu babe
+      // dok maše guzom, Lovro se automatski okrene guzom prema teti
+      if (buba.twerking) {
+        buba.facing = Math.sign(buba.pos.x - baba.pos.x) || buba.facing;
+      }
+
+      // provokacija: Lovro maše guzom dovoljno blizu tete
       if (buba.twerking && buba.invuln <= 0 && buba.pos.dist(baba.pos.add(0, -12)) <= BB.tauntRange) {
         meter += dt;
         hud.setMeter(meter / BB.tauntTime);

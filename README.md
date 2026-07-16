@@ -43,6 +43,8 @@ Findera neće raditi jer preglednik blokira ES module s `file://`.
   (skok = zamah krilima, radi i u zraku). Teta pobjeđuje s 3 pljasa;
   Lovro pobjeđuje ako napuni PROVOKACIJU mašući guzom blizu tete
   (S/dolje), ili ako preživi do isteka vremena. Najbolji od 3 runde.
+  Lovro ima i BRZI IZMAK (X): nagli let u stranu s trenom nedodirljivosti —
+  dobro tempiran izmak pobjeđuje zamah muholovke.
   (U igri se nitko ne zove "baba" ni "buba" — to je samo naziv igre.)
 - **OVCA** — uskoro
 - **BOBA** — uskoro
