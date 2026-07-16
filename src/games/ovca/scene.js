@@ -61,6 +61,7 @@ export function registerScene(k) {
       carrying = false;
       teta.heldObject = null;
       lovro.animLock = 0;
+      lovro.z = 10;
       if (escaped) {
         // isklizne joj iz ruku i odskoči
         thrown = false;
@@ -85,6 +86,8 @@ export function registerScene(k) {
       teta.heldObject = null;
       teta.pos = k.vec2(FIGHTER_SPAWNS.teta.x, FIGHTER_SPAWNS.teta.y);
       lovro.pos = k.vec2(FIGHTER_SPAWNS.lovro.x, FIGHTER_SPAWNS.lovro.y);
+      teta.vel = k.vec2(0, 0);
+      lovro.vel = k.vec2(0, 0);
       teta.facing = -1;
       lovro.facing = 1;
       hud.setRound(match.round, match.maxRounds);
@@ -146,6 +149,7 @@ export function registerScene(k) {
         carryT = 0;
         teta.heldObject = lovro; // borac tada sam koristi "hold" animacije
         lovro.frozen = true;
+        lovro.z = 11; // ISPRED tete dok ga nosi, da se uvijek vidi
         lovro.playLocked("ouch", 9);
         say(k, teta, choice(ovcaTaunts.tetaCatch), bubbleUp);
       }
@@ -211,10 +215,11 @@ export function registerScene(k) {
       if (phase !== "playing") return;
       if (wantGrab && !teta.frozen) tryGrabOrThrow();
 
-      // nošenje: ovca visi teti iznad glave dok je ne baci ili ne isklizne
+      // nošenje: ovca visi teti pod rukom, sa strane, dok je ne baci
+      // ili dok joj ne isklizne
       if (carrying) {
         carryT += dt;
-        lovro.pos = teta.pos.add(0, -26);
+        lovro.pos = teta.pos.add(teta.facing * 12, -14);
         lovro.facing = teta.facing;
         lovro.vel = k.vec2(0, 0);
         if (carryT >= OVCA.carryMaxTime) releaseLovro({ escaped: true });

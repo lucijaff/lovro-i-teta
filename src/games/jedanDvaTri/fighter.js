@@ -46,6 +46,15 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
         this.invuln = Math.max(0, this.invuln - dt);
         this.opacity = this.invuln > 0 ? (Math.floor(k.time() * 14) % 2 === 0 ? 1 : 0.35) : 1;
 
+        // tijela nemaju trenje: vodoravna brzina (npr. od bacanja u Ovci)
+        // gasi se na tlu — u zraku ostaje da bacanje ima pravi luk.
+        // Klampanje na ekran vrijedi i dok je lik smrznut, inače ga
+        // zaostala brzina tijekom najave runde tiho odveze s ekrana.
+        if (this.isGrounded()) {
+          this.vel = k.vec2(this.vel.x * Math.max(0, 1 - 10 * dt), this.vel.y);
+        }
+        this.pos.x = k.clamp(this.pos.x, 8, k.width() - 8);
+
         if (this.frozen) {
           if (this.animLock <= 0) this.playIf(this.heldObject ? "hold" : "idle");
           return;
@@ -66,9 +75,6 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
           const onBed = this.curPlatform()?.is("bed");
           this.jump(PHYSICS.jumpForce * (onBed ? PHYSICS.bedBounce : 1));
         }
-
-        // ne izlazi s ekrana
-        this.pos.x = k.clamp(this.pos.x, 8, k.width() - 8);
 
         if (this.animLock <= 0) {
           const held = !!this.heldObject;
