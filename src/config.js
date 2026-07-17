@@ -141,6 +141,7 @@ export const ASTUK_BOBA = {
   tauntTime: 2.6, // bliže teti = brže puni (do 2×), kao u Ovci
   twerkSlowdown: 0.4,
   lovroSpeed: 115,
+  lovroJumpMul: 1.25, // Lovro skače VIŠE — preskače tetu i bježi na police
   leapSpeed: 260, // BRZI IZMAK (X), isti kao u Ovci
   leapJump: 170,
   leapCooldown: 1.1,

@@ -22,6 +22,7 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
       slapCooldown: 0,
       invuln: 0, // nakon primljene pljeske kratko nedodirljiv
       speedMul: 1, // po-igri prilagodba brzine (npr. ovca je brža)
+      jumpMul: 1, // po-igri prilagodba skoka (npr. Lovro u Astuk bobi)
       animLock: 0,
       frozen: true,
       _anim: null,
@@ -92,7 +93,7 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
 
         if (c.consumePress("jump") && this.isGrounded()) {
           const onBed = this.curPlatform()?.is("bed");
-          this.jump(PHYSICS.jumpForce * (onBed ? PHYSICS.bedBounce : 1));
+          this.jump(PHYSICS.jumpForce * this.jumpMul * (onBed ? PHYSICS.bedBounce : 1));
         }
 
         if (this.animLock <= 0) {

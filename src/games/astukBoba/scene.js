@@ -25,6 +25,7 @@ export function registerScene(k) {
     const teta = spawnFighter(k, { character: "teta", pos: FIGHTER_SPAWNS.teta, facing: -1 });
     const lovro = spawnFighter(k, { character: "lovro", pos: FIGHTER_SPAWNS.lovro, facing: 1 });
     lovro.speedMul = AB.lovroSpeed / PHYSICS.moveSpeed;
+    lovro.jumpMul = AB.lovroJumpMul; // viši skokovi — glavni alat za bijeg
 
     // veliki jastuk u tetinim rukama: miruje na ramenu, zamah ide naprijed
     const pillow = teta.add([
