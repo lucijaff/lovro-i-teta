@@ -41,6 +41,12 @@ export const STR = {
   ovGrabHint: "X = ULOVI / BACI",
   ovLeapHint: "X = BRZI IZMAK!",
 
+  // Astuk Boba (Lovrina strana dijeli tekstove s Baba i BUBA)
+  abIntroTeta: "OPALI LOVRU JASTUKOM 3 PUTA!",
+  abPuf: "PUF!",
+  abHitRound: "TETA GA JE OPALILA JASTUKOM!",
+  abSwingHint: "X = ZAMAHNI JASTUKOM!",
+
   // BOBA
   bobaIntro: "NA LEĐA — JASTUK I DEKA NE VRIJEDE!",
   bobaNaLedja: "NA LEĐA!",

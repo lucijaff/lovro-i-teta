@@ -5,15 +5,9 @@ import jedanDvaTri from "./games/jedanDvaTri/index.js";
 import babaIBuba from "./games/babaIBuba/index.js";
 import ovca from "./games/ovca/index.js";
 import boba from "./games/boba/index.js";
+import astukBoba from "./games/astukBoba/index.js";
 
-export const GAMES = [
-  jedanDvaTri,
-  babaIBuba,
-  ovca,
-  boba,
-  // Velika i mala slova su namjerna: "Astuk Boba"
-  { id: "astukBoba", title: "Astuk Boba", ready: false },
-];
+export const GAMES = [jedanDvaTri, babaIBuba, ovca, boba, astukBoba];
 
 export function registerGameScenes(k) {
   for (const game of GAMES) {

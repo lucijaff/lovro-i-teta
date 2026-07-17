@@ -58,7 +58,10 @@ Findera neće raditi jer preglednik blokira ES module s `file://`.
   pa se bori doletjeti do jastuka. Jastuci mijenjaju mjesto svaku rundu.
   Prvi do 3 "na leđa"; neriješeno na isteku = ZLATNO BACANJE. I da:
   Lovrina pravila vrijede i ovdje ("NISAM PAO NA LEĐA!").
-- **Astuk Boba** — uskoro (čekamo pravila od Lovre)
+- **Astuk Boba** — teta s VELIKIM jastukom lovi Lovru po sobi (kao Baba i
+  BUBA, ali prizemno). Jastuk se sporo zamahuje, ali daleko dohvaća, a
+  pogodak lansira Lovru preko sobe — 3 pogotka za tetinu rundu. Lovro ima
+  BRZI IZMAK (X) i pobjeđuje provokacijom uz tetu ili bijegom do isteka.
 
 ## Kako dodati nove Lovrine izjave
 

@@ -47,6 +47,11 @@ export const ovcaTaunts = {
   tetaThrow: ["EVO GA DOLJE!", "TAKO!"],
 };
 
+// Astuk Boba — Lovro bez zujanja (nije buba!), teta s jastukom.
+export const astukBobaTaunts = {
+  lovro: ["NE MOŽEŠ ME ULOVITI!", "TETA, TI SI BEBA!", "TETA BROJ TRI!", "PROMAŠILA SI!"],
+};
+
 // Baba i BUBA!!!
 // VAŽNO: oni se NIKAD ne zovu "baba" i "buba" — uvijek su Lovro i teta.
 export const babaBubaTaunts = {

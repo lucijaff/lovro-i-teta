@@ -3,27 +3,8 @@
 // tko na njih padne, bacanje ne vrijedi.
 
 import { BOBA } from "../../config.js";
-import { loadPixelSprite } from "../../sprites/pixel.js";
 
 export const SURFACE_Y = 150; // vrh madraca
-
-// Veliki jastuk, 24×10.
-export const VELIKI_JASTUK = [
-  "....WWWWWWWWWWWWWWWW....",
-  "..WWWWWWWWWWWWWWWWWWWW..",
-  ".WWWWWWWWWWWWWWWWWWWWWW.",
-  "WWWWWWWWWWWWWWWWWWWWWWWW",
-  "WWEWWWWWWWWWWWWWWWWWWEWW",
-  "WWWWWWWWWWWWWWWWWWWWWWWW",
-  ".WWWWWWWWWWWWWWWWWWWWWW.",
-  "..WWWWWWWWWWWWWWWWWWWW..",
-  "....WWWWWWWWWWWWWWWW....",
-  "........................",
-];
-
-export function loadBobaSprites(k) {
-  loadPixelSprite(k, "velikiJastuk", [VELIKI_JASTUK], { width: 24, height: 10 });
-}
 
 export function buildArena(k) {
   // zid sobe u pozadini + prozor

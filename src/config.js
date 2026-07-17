@@ -124,6 +124,36 @@ export const BOBA = {
   },
 };
 
+// Astuk Boba — teta s velikim jastukom lovi Lovru po sobi.
+// Kao Baba i BUBA, ali prizemno: jastuk je spor i velik, a pogodak
+// LANSIRA Lovru preko sobe (jastuk je jastuk).
+export const ASTUK_BOBA = {
+  winsNeeded: 2, // meč: najbolji od 3 runde
+  maxRounds: 3,
+  roundTime: 45,
+  hitsToWin: 3,
+  swingCooldown: 0.9, // veliki jastuk se sporo zamahuje
+  swingReach: 24, // ...ali daleko dohvaća
+  hitInvulnTime: 1.6,
+  launchVelX: 240, // pogodak lansira Lovru preko sobe
+  launchVelY: -180,
+  tauntRange: 52,
+  tauntTime: 2.6, // bliže teti = brže puni (do 2×), kao u Ovci
+  twerkSlowdown: 0.4,
+  lovroSpeed: 115,
+  leapSpeed: 260, // BRZI IZMAK (X), isti kao u Ovci
+  leapJump: 170,
+  leapCooldown: 1.1,
+  leapInvuln: 0.5,
+  ai: {
+    swingReactionMin: 0.3,
+    swingReactionMax: 0.75,
+    approachInterval: 4,
+    fleeDistance: 46,
+    fleeAtDive: 16,
+  },
+};
+
 // "Lovrina pravila" — Lovro izmišlja pravila u hodu, pogotovo kad gubi.
 // Kad je Lovro trkač i pljeska ga zakonito pogodi, ponekad jednostavno
 // izjavi da nije bilo ništa ("NISAM OSJETIO!") i pljeska se poništi.
