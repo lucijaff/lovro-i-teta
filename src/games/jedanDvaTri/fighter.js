@@ -11,6 +11,7 @@ export function spawnFighter(k, { character, pos, facing = 1 }) {
     k.area({ scale: k.vec2(0.62, 0.95), collisionIgnore: ["fighter", "pickup"] }),
     k.body({ jumpForce: PHYSICS.jumpForce }),
     k.opacity(1),
+    k.rotate(0), // za "ležanje na leđima" u Bobi; inače uvijek 0
     k.z(10),
     "fighter",
     {

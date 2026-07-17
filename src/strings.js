@@ -40,6 +40,13 @@ export const STR = {
   ovBedBonus: "NA KREVET! +2",
   ovGrabHint: "X = ULOVI / BACI",
   ovLeapHint: "X = BRZI IZMAK!",
+
+  // BOBA
+  bobaIntro: "NA LEĐA — JASTUK I DEKA NE VRIJEDE!",
+  bobaNaLedja: "NA LEĐA!",
+  bobaGolden: "ZLATNO BACANJE!",
+  bobaGoldenSub: "SLJEDEĆE BACANJE POBJEĐUJE!",
+  bobaHint: "X = BACI!  U LETU STRELICE = PAD",
   taps: ["JEDAN!", "DVA!", "TRI!!!"],
 
   again: "PONOVNO",

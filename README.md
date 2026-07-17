@@ -52,7 +52,13 @@ Findera neće raditi jer preglednik blokira ES module s `file://`.
   Kad te zgrabi, zgrabila te — nema otimanja. 4 boda za tetinu rundu;
   Lovro pobjeđuje provokacijom (maši guzom uz tetu) ili bijegom do isteka.
   Lovro ima BRZI IZMAK (X): ovčji skok u stranu s trenom nedodirljivosti.
-- **BOBA** — uskoro
+- **BOBA** — hrvanje na VELIKOM krevetu (cijela arena je odskočni madrac!).
+  Zgrabi protivnika (X) i baci ga: padne li na gola leđa — bod; padne li
+  na jastuk ili deku — ne vrijedi. Bačeni u letu upravlja padom strelicama
+  pa se bori doletjeti do jastuka. Jastuci mijenjaju mjesto svaku rundu.
+  Prvi do 3 "na leđa"; neriješeno na isteku = ZLATNO BACANJE. I da:
+  Lovrina pravila vrijede i ovdje ("NISAM PAO NA LEĐA!").
+- **Astuk Boba** — uskoro (čekamo pravila od Lovre)
 
 ## Kako dodati nove Lovrine izjave
 

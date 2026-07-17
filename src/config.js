@@ -99,6 +99,31 @@ export const OVCA = {
   },
 };
 
+// BOBA — hrvanje na VELIKOM krevetu: baci protivnika na leđa!
+// Jastuk i deka ne vrijede — bačeni igrač u letu upravlja padom
+// i pokušava sletjeti baš na njih.
+export const BOBA = {
+  winsNeeded: 2, // meč: najbolji od 3 runde
+  maxRounds: 3,
+  roundTime: 45,
+  throwsToWin: 3, // "na leđa" pogodaka za rundu
+  grabRange: 18,
+  grabCooldown: 1.0,
+  flingVelX: 220, // kojom brzinom bačeni leti
+  flingVelY: -170,
+  flungSteerMul: 0.45, // koliko upravljanja bačeni ima u zraku
+  hitInvulnTime: 1.3,
+  lieDownTime: 0.9, // koliko dugo leži na leđima nakon pada
+  pillowHalfWidth: 18, // pola širine sigurne zone jastuka
+  blanketZone: [230, 304], // deka: fiksno desno
+  pillowSpots: [44, 92, 140, 188], // jastuci: 2 nasumična od ovih po rundi
+  ai: {
+    grabReactionMin: 0.2,
+    grabReactionMax: 0.6,
+    retreatChance: 0.25, // ponekad se povuče umjesto da srlja
+  },
+};
+
 // "Lovrina pravila" — Lovro izmišlja pravila u hodu, pogotovo kad gubi.
 // Kad je Lovro trkač i pljeska ga zakonito pogodi, ponekad jednostavno
 // izjavi da nije bilo ništa ("NISAM OSJETIO!") i pljeska se poništi.

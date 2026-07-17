@@ -4,12 +4,15 @@
 import jedanDvaTri from "./games/jedanDvaTri/index.js";
 import babaIBuba from "./games/babaIBuba/index.js";
 import ovca from "./games/ovca/index.js";
+import boba from "./games/boba/index.js";
 
 export const GAMES = [
   jedanDvaTri,
   babaIBuba,
   ovca,
-  { id: "boba", title: "BOBA", ready: false },
+  boba,
+  // Velika i mala slova su namjerna: "Astuk Boba"
+  { id: "astukBoba", title: "Astuk Boba", ready: false },
 ];
 
 export function registerGameScenes(k) {
