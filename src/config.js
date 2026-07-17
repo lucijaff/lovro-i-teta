@@ -130,7 +130,7 @@ export const BOBA = {
 export const ASTUK_BOBA = {
   winsNeeded: 2, // meč: najbolji od 3 runde
   maxRounds: 3,
-  roundTime: 45,
+  roundTime: 25, // kraća runda = Lovri je lakše pobjeći do isteka
   hitsToWin: 3,
   swingCooldown: 0.9, // veliki jastuk se sporo zamahuje
   swingReach: 24, // ...ali daleko dohvaća
