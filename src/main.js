@@ -5,6 +5,7 @@ import { SCREEN, PHYSICS } from "./config.js";
 import { loadAllSprites } from "./sprites/index.js";
 import { registerGameScenes } from "./registry.js";
 import { registerMenuScene } from "./scenes/menu.js";
+import { registerSubmenuScene } from "./scenes/submenu.js";
 import { registerSelectScene } from "./scenes/characterSelect.js";
 import { registerPlaceholderScene } from "./scenes/placeholder.js";
 import { registerMatchEndScene } from "./scenes/matchEnd.js";
@@ -29,6 +30,7 @@ loadAllSprites(k);
 k.setGravity(PHYSICS.gravity);
 
 registerMenuScene(k);
+registerSubmenuScene(k);
 registerSelectScene(k);
 registerPlaceholderScene(k);
 registerMatchEndScene(k);

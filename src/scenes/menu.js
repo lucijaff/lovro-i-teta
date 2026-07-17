@@ -85,19 +85,22 @@ export function registerMenuScene(k) {
     );
     function refresh() {
       items.forEach((item, i) => {
-        const name = item.game.ready ? item.game.title : `${item.game.title} *`;
+        const playable = item.game.ready || !!item.game.submenu;
+        const name = playable ? item.game.title : `${item.game.title} *`;
         item.text = i === selected ? `> ${name} <` : name;
-        item.color = i === selected ? gold : item.game.ready ? white : dim;
+        item.color = i === selected ? gold : playable ? white : dim;
       });
     }
     refresh();
 
-    k.add([
-      k.text("* = USKORO", { size: 8 }),
-      k.pos(k.width() / 2, 72 + GAMES.length * 14 + 2),
-      k.anchor("center"),
-      k.color(dim),
-    ]);
+    if (GAMES.some((g) => !g.ready && !g.submenu)) {
+      k.add([
+        k.text("* = USKORO", { size: 8 }),
+        k.pos(k.width() / 2, 72 + GAMES.length * 14 + 2),
+        k.anchor("center"),
+        k.color(dim),
+      ]);
+    }
     // traka s uputama preko poda, da tekst bude čitljiv
     k.add([
       k.rect(k.width(), 13),
@@ -123,8 +126,16 @@ export function registerMenuScene(k) {
     for (const key of ["enter", "space"]) {
       k.onKeyPress(key, () => {
         const game = GAMES[selected];
-        if (game.ready) k.go("select", { gameId: game.id });
-        else k.go("placeholder", { title: game.title });
+        if (game.submenu) {
+          k.go("submenu", {
+            title: game.submenuTitle,
+            items: game.submenu.map((s) => ({ label: s.label, gameId: s.game.id })),
+          });
+        } else if (game.ready) {
+          k.go("select", { gameId: game.id });
+        } else {
+          k.go("placeholder", { title: game.title });
+        }
       });
     }
   });
