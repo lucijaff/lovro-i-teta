@@ -6,11 +6,13 @@ import babaIBuba from "./games/babaIBuba/index.js";
 import ovca from "./games/ovca/index.js";
 import boba from "./games/boba/index.js";
 import astukBoba from "./games/astukBoba/index.js";
+import mcRun from "./games/mcRun/index.js";
 
 export const GAMES = [
   jedanDvaTri,
   babaIBuba,
   ovca,
+  mcRun,
   {
     id: "bobaGroup",
     title: "BOBA",

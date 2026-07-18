@@ -13,6 +13,7 @@ import { STR } from "../../strings.js";
 import { gameTaunts } from "../../taunts.js";
 import { say } from "../../ui/bubble.js";
 import { banner, floatText, choice } from "../../ui/banner.js";
+import { installBebaEgg } from "../../ui/bebaEgg.js";
 import { buildLevel, FIGHTER_SPAWNS, OBJECT_SPAWNS } from "./level.js";
 import { spawnFighter } from "./fighter.js";
 import { trySlap, shieldFlash } from "./slap.js";
@@ -38,6 +39,11 @@ export function registerScene(k) {
     fighters[playerChar].controller = kb;
     fighters[cpuChar].controller = cpu.ctrl;
     cpu.assign(fighters[cpuChar], fighters[playerChar]);
+    installBebaEgg(k, {
+      lovro: fighters.lovro,
+      teta: fighters.teta,
+      enabled: playerChar === "lovro",
+    });
 
     const match = createMatch(JDT);
     const hud = createHud(k, JDT.slapsToWin);

@@ -52,6 +52,20 @@ export const astukBobaTaunts = {
   lovro: ["NE MOŽEŠ ME ULOVITI!", "TETA, TI SI BEBA!", "TETA BROJ TRI!", "PROMAŠILA SI!"],
 };
 
+// MC Run — Lovro s Maksom lovi tetu koja ne voli mačke.
+export const mcRunTaunts = {
+  lovro: ["MAKS TE HOĆE!", "SAMO GA POMAZI!", "TETA, GLE MACU!"],
+  teta: ["MIČI GA OD MENE!", "NE-E-E!", "LOVRO, MOLIM TE!"],
+  maks: ["MIJAU!", "MIJAU?!", "MRRRNJAU!"],
+  tetaCaught: ["FUJ!", "AAAA!", "DOSTA, DOSTA!"],
+};
+
+// Skriveno iznenađenje: igrač koji igra Lovru utipka "beba".
+export const bebaEgg = {
+  lovro: "TI SI BEBAAAAA!",
+  teta: "NISAM BEBA!!!",
+};
+
 // Baba i BUBA!!!
 // VAŽNO: oni se NIKAD ne zovu "baba" i "buba" — uvijek su Lovro i teta.
 export const babaBubaTaunts = {

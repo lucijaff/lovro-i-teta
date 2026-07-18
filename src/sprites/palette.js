@@ -12,7 +12,7 @@ export const PALETTE = {
   R: "#d82810", // crvena (Lovrina majica)
   L: "#4a90d8", // traper plava (Lovrine hlače)
   P: "#c84cb0", // ružičasto-ljubičasta (tetina majica)
-  D: "#3a3a5c", // tamna (tetine hlače)
+  D: "#3a3a5c", // tamna (tetine hlače, Maksov odsjaj)
   Y: "#f8b820", // žuta
   O: "#c47c3a", // svijetlo drvo
   N: "#7a4a1e", // tamno drvo

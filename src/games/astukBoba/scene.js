@@ -9,6 +9,7 @@ import { STR } from "../../strings.js";
 import { babaBubaTaunts, astukBobaTaunts } from "../../taunts.js";
 import { say } from "../../ui/bubble.js";
 import { banner, floatText, choice } from "../../ui/banner.js";
+import { installBebaEgg } from "../../ui/bebaEgg.js";
 import { buildLevel, FIGHTER_SPAWNS } from "../jedanDvaTri/level.js";
 import { spawnFighter } from "../jedanDvaTri/fighter.js";
 import { createMatch } from "../jedanDvaTri/rules.js";
@@ -51,6 +52,7 @@ export function registerScene(k) {
     lovro.controller = playerIsTeta ? lovroCpu.ctrl : kb;
     tetaCpu.assign(teta, lovro);
     lovroCpu.assign(lovro, teta);
+    installBebaEgg(k, { lovro, teta, enabled: !playerIsTeta });
 
     const match = createMatch(AB);
     const hud = createHud(k, AB.hitsToWin);

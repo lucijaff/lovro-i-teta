@@ -1,8 +1,12 @@
-// HUD za Baba i BUBA!!!: provokacija-metar za bubu, pljas-pločice za babu.
+// HUD s metrom lijevo i pločicama desno. Koriste ga Baba i BUBA, Ovca,
+// Astuk boba (metar = provokacija) i MC Run (metar = tetin bijeg).
 
 import { STR } from "../../strings.js";
 
-export function createHud(k, swatsToWin = 3) {
+export function createHud(k, pipsCount = 3, opts = {}) {
+  const meterOwner = opts.meterOwner ?? "LOVRO";
+  const pipsOwner = opts.pipsOwner ?? "TETA";
+  const meterLabel = opts.meterLabel ?? STR.bbMeterLabel;
   const dark = k.rgb(26, 28, 44);
   const gold = k.rgb(248, 184, 32);
   const white = k.rgb(244, 244, 244);
@@ -10,8 +14,8 @@ export function createHud(k, swatsToWin = 3) {
 
   k.add([k.rect(k.width(), 24), k.pos(0, 0), k.color(dark), k.opacity(0.8), k.z(100)]);
 
-  // lijevo: LOVRO + provokacija-metar
-  k.add([k.text("LOVRO", { size: 8 }), k.pos(4, 4), k.color(white), k.z(101)]);
+  // lijevo: vlasnik metra + metar
+  k.add([k.text(meterOwner, { size: 8 }), k.pos(4, 4), k.color(white), k.z(101)]);
   const METER_W = 56;
   k.add([
     k.rect(METER_W + 2, 8),
@@ -27,21 +31,21 @@ export function createHud(k, swatsToWin = 3) {
     k.z(102),
   ]);
   k.add([
-    k.text(STR.bbMeterLabel, { size: 8 }),
+    k.text(meterLabel, { size: 8 }),
     k.pos(4 + METER_W + 8, 13),
     k.color(k.rgb(140, 130, 150)),
     k.z(101),
   ]);
 
-  // desno: TETA + pljas-pločice
+  // desno: vlasnik pločica + pločice
   k.add([
-    k.text("TETA", { size: 8 }),
+    k.text(pipsOwner, { size: 8 }),
     k.pos(k.width() - 4, 4),
     k.anchor("topright"),
     k.color(white),
     k.z(101),
   ]);
-  const pips = Array.from({ length: swatsToWin }, (_, i) =>
+  const pips = Array.from({ length: pipsCount }, (_, i) =>
     k.add([
       k.rect(7, 7),
       k.pos(k.width() - 12 - i * 11, 13),

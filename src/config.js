@@ -155,6 +155,27 @@ export const ASTUK_BOBA = {
   },
 };
 
+// MC Run — Lovro nosi Maksa (našu crnu mačku) visoko iznad glave i lovi
+// tetu. Ona bježi jer ne voli mačke. Dodir s Maksom = ulov!
+export const MC_RUN = {
+  winsNeeded: 2, // meč: najbolji od 3 runde
+  maxRounds: 3,
+  roundTime: 25,
+  catchesToWin: 3,
+  touchRange: 13, // koliko blizu Maks mora doći do tete
+  hitInvulnTime: 1.6, // teta nakon ulova kratko nedodirljiva (pobjegne)
+  lovroSpeed: 112, // Lovro s mačkom — brz, ali ne kao inače
+  tetaJumpMul: 1.15, // teta u panici skače više
+  leapSpeed: 260, // tetin BRZI IZMAK (X) — sad ONA bježi
+  leapJump: 170,
+  leapCooldown: 1.1,
+  leapInvuln: 0.5,
+  ai: {
+    fleeDistance: 110, // teta drži VELIKI razmak od mačke
+    panicDistance: 50,
+  },
+};
+
 // "Lovrina pravila" — Lovro izmišlja pravila u hodu, pogotovo kad gubi.
 // Kad je Lovro trkač i pljeska ga zakonito pogodi, ponekad jednostavno
 // izjavi da nije bilo ništa ("NISAM OSJETIO!") i pljeska se poništi.

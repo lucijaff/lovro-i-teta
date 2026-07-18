@@ -11,6 +11,7 @@ import { STR } from "../../strings.js";
 import { babaBubaTaunts } from "../../taunts.js";
 import { say } from "../../ui/bubble.js";
 import { banner, floatText, choice } from "../../ui/banner.js";
+import { installBebaEgg } from "../../ui/bebaEgg.js";
 import { buildLevel } from "../jedanDvaTri/level.js";
 import { spawnFighter } from "../jedanDvaTri/fighter.js";
 import { createMatch } from "../jedanDvaTri/rules.js";
@@ -153,6 +154,7 @@ export function registerScene(k) {
     buba.controller = playerIsBaba ? bubaCpu.ctrl : kb;
     babaCpu.assign(baba, buba);
     bubaCpu.assign(buba, baba);
+    installBebaEgg(k, { lovro: buba, teta: baba, enabled: !playerIsBaba });
 
     const match = createMatch(BB);
     const hud = createHud(k, BB.swatsToWin);

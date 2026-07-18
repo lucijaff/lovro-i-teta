@@ -63,8 +63,16 @@ Findera neće raditi jer preglednik blokira ES module s `file://`.
   pogodak lansira Lovru preko sobe — 3 pogotka za tetinu rundu (runda 25s).
   Lovro ima BRZI IZMAK (X) i pobjeđuje provokacijom ili bijegom do isteka.
 
+- **MC Run** — obrnute uloge: Lovro nosi Maksa (našu crnu mačku) visoko
+  iznad glave i lovi tetu, koja bježi jer ne voli mačke. Dodir s Maksom =
+  ulov (MIJAU!), 3 ulova za Lovrinu rundu; teta pobjeđuje ako preživi 25s
+  — i sad ONA ima BRZI IZMAK (X) i više skakanje.
+
 Na izborniku BOBA otvara podizbornik **VRSTA BOBE**: Obična boba ili
 Astuk boba.
+
+Psst: ako igraš kao Lovro i utipkaš jednu posebnu riječ... nešto se dogodi.
+(U svakoj igri. Lovro će znati koju riječ.)
 
 ## Kako dodati nove Lovrine izjave
 

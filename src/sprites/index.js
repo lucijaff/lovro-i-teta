@@ -3,6 +3,7 @@ import { loadObjectSprites } from "./objects.js";
 import { loadTileSprites } from "./tiles.js";
 import { loadMuholovkaSprite } from "./muholovka.js";
 import { loadVelikiJastukSprite } from "./velikiJastuk.js";
+import { loadMaksSprite } from "./maks.js";
 
 export function loadAllSprites(k) {
   loadCharacterSprites(k);
@@ -10,4 +11,5 @@ export function loadAllSprites(k) {
   loadTileSprites(k);
   loadMuholovkaSprite(k);
   loadVelikiJastukSprite(k);
+  loadMaksSprite(k);
 }

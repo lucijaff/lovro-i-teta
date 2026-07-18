@@ -47,6 +47,14 @@ export const STR = {
   abHitRound: "TETA GA JE OPALILA JASTUKOM!",
   abSwingHint: "X = ZAMAHNI JASTUKOM!",
 
+  // MC Run
+  mcIntroLovro: "DOTAKNI TETU S MAKSOM — 3 PUTA!",
+  mcIntroTeta: "BJEŽI OD MAKSA DO ISTEKA!",
+  mcCatchRound: "MAKS JE ULOVIO TETU!",
+  mcEscapeRound: "TETA JE POBJEGLA MAKSU!",
+  mcMeterLabel: "BIJEG",
+  mcCatch: "MIJAU!!!",
+
   // BOBA
   bobaIntro: "NA LEĐA — JASTUK I DEKA NE VRIJEDE!",
   bobaNaLedja: "NA LEĐA!",
