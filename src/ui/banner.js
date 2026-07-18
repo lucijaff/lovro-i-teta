@@ -52,3 +52,23 @@ export function floatText(k, pos, str, colorHex = "#f8d878") {
 export function choice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
+
+// Veliki bljeskajući natpis preko sredine ekrana (BEBA!!!, ŠINGGGG!!!...)
+const FLASH_COLORS = ["#f8b820", "#d82810", "#40d8d0", "#c84cb0", "#38b764"];
+
+export function flashText(k, str, { y = 70, size = 24, duration = 1.4 } = {}) {
+  const t = k.add([
+    k.text(str, { size }),
+    k.pos(k.width() / 2, y),
+    k.anchor("center"),
+    k.color(248, 184, 32),
+    k.opacity(1),
+    k.z(400),
+    k.lifespan(duration, { fade: 0.5 }),
+  ]);
+  t.onUpdate(() => {
+    t.color = k.Color.fromHex(FLASH_COLORS[Math.floor(k.time() * 10) % FLASH_COLORS.length]);
+    t.pos.y = y + Math.sin(k.time() * 14) * 3;
+  });
+  return t;
+}

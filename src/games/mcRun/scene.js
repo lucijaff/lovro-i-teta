@@ -8,7 +8,7 @@ import { keyboardController } from "../../input.js";
 import { STR } from "../../strings.js";
 import { mcRunTaunts } from "../../taunts.js";
 import { say } from "../../ui/bubble.js";
-import { banner, floatText, choice } from "../../ui/banner.js";
+import { banner, floatText, flashText, choice } from "../../ui/banner.js";
 import { installBebaEgg } from "../../ui/bebaEgg.js";
 import { buildLevel, FIGHTER_SPAWNS } from "../jedanDvaTri/level.js";
 import { spawnFighter } from "../jedanDvaTri/fighter.js";
@@ -117,6 +117,7 @@ export function registerScene(k) {
     function onCatch() {
       catches++;
       hud.setSwats(catches);
+      flashText(k, "ŠINGGGG!!!"); // zvuk dodira mačke, naravno
       floatText(k, teta.pos.add(0, -30), STR.mcCatch, "#f8b820");
       say(k, teta, choice(mcRunTaunts.tetaCaught), bubbleUp);
       teta.playLocked("ouch", 0.4);

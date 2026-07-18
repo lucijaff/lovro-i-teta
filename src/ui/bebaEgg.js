@@ -4,6 +4,7 @@
 // je uloviti. Ali vrijedi. Radi u svakoj igri.
 
 import { say } from "./bubble.js";
+import { flashText } from "./banner.js";
 import { bebaEgg } from "../taunts.js";
 
 const CONFETTI = ["#f8b820", "#d82810", "#40d8d0", "#c84cb0", "#38b764"];
@@ -36,19 +37,7 @@ export function installBebaEgg(k, { lovro, teta, enabled }) {
     k.shake(5);
 
     // veliki bljeskajući natpis preko sredine
-    const big = k.add([
-      k.text("BEBA!!!", { size: 24 }),
-      k.pos(k.width() / 2, 70),
-      k.anchor("center"),
-      k.color(248, 184, 32),
-      k.opacity(1),
-      k.z(400),
-      k.lifespan(1.4, { fade: 0.5 }),
-    ]);
-    big.onUpdate(() => {
-      big.color = k.Color.fromHex(CONFETTI[Math.floor(k.time() * 10) % CONFETTI.length]);
-      big.pos.y = 70 + Math.sin(k.time() * 14) * 3;
-    });
+    flashText(k, "BEBA!!!");
 
     // konfeti iz Lovre
     for (let i = 0; i < 22; i++) {
