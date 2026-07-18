@@ -2,7 +2,7 @@
 // Ona bježi jer ne voli mačke. Dodir s Maksom = ulov, MIJAU!
 // Uloge su napokon obrnute: LOVRO lovi, TETA ima brzi izmak.
 
-import { PHYSICS, JEDAN_DVA_TRI as JDT, MC_RUN as MC } from "../../config.js";
+import { PHYSICS, MC_RUN as MC } from "../../config.js";
 import { session } from "../../state.js";
 import { keyboardController } from "../../input.js";
 import { STR } from "../../strings.js";
@@ -28,14 +28,11 @@ export function registerScene(k) {
     const teta = spawnFighter(k, { character: "teta", pos: FIGHTER_SPAWNS.teta, facing: -1 });
     teta.jumpMul = MC.tetaJumpMul;
 
-    // Maks: nošen visoko iznad Lovrine glave (kao trofej).
-    // heldObject trik pali Lovrine "hold" animacije; brzinu vraćamo
-    // speedMul-om jer nošenje inače usporava.
+    // Maks: nošen u naručju, ispred Lovre (ne iznad glave).
     const maks = k.add([k.sprite("maks"), k.pos(0, 0), k.anchor("bot"), k.z(11), "maks"]);
-    lovro.heldObject = maks;
-    lovro.speedMul = MC.lovroSpeed / (PHYSICS.moveSpeed * JDT.holdSlowdown);
+    lovro.speedMul = MC.lovroSpeed / PHYSICS.moveSpeed;
     maks.onUpdate(() => {
-      maks.pos = lovro.pos.add(0, -26);
+      maks.pos = lovro.pos.add(lovro.facing * 6, -9);
       maks.flipX = lovro.facing < 0;
     });
 

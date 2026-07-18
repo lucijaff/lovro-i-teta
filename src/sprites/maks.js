@@ -1,12 +1,12 @@
 // MAKS — naša crna mačka, 14×10, gleda udesno.
-// Zelene oči i sivkasti odsjaj po leđima da se vidi na tamnoj pozadini.
+// Žute oči i sivkasti odsjaj po leđima da se vidi na tamnoj pozadini.
 
 import { loadPixelSprite } from "./pixel.js";
 
 export const MAKS = [
   ".........D.DD.",
   ".........KKKK.",
-  "DD.......KGKGK",
+  "DD.......KYKYK",
   ".DK......KKKKK",
   "..KKKKKKKKKKK.",
   "..KKKKKKKKKK..",
